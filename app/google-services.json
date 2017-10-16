@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "237178511986",
+    "firebase_url": "https://rumbox-999d6.firebaseio.com",
+    "project_id": "rumbox-999d6",
+    "storage_bucket": "rumbox-999d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237178511986:android:addf444119041f96",
+        "android_client_info": {
+          "package_name": "ubox.etec.com.rumbox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "237178511986-ke0a5cpp1mr0m7opgiijngc39g2jc5mc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ubox.etec.com.rumbox",
+            "certificate_hash": "538c7826d3bb16079777604d9186c272ba341bbf"
+          }
+        },
+        {
+          "client_id": "237178511986-j486upl05k0ff5anaho3b9i0kdbbjkol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-U3W1XBjsKuhkVnTaKSMYJLFTD0i7gSM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "237178511986-j486upl05k0ff5anaho3b9i0kdbbjkol.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

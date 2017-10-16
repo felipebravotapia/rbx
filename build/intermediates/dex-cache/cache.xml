@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="D:\respaldo 08-09-2017\NOTi\Rumbox\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="D:\respaldo 08-09-2017\NOTi\Rumbox\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_0a7fa0840edbb78e6f978cefa17eaa4095976003\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\respaldo 08-09-2017\NOTi\Rumbox\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9ae950abb92b2837b9e1f9f248d85f23731885e9">
+        <dex dex="D:\respaldo 08-09-2017\NOTi\Rumbox\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_4e07a5439ccdb65afb54fc8eea8ac83f719ddd94\classes.dex" />
+    </item>
+
+</items>

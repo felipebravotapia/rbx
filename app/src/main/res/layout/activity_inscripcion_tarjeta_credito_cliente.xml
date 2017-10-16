@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ubox.etec.com.rumbox.Inscripcion_tarjeta_credito_cliente">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1">
+
+        <EditText
+            android:id="@+id/etccvtarjeta"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etnumerotarjeta"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="28dp"
+            android:ems="10"
+            android:hint="@string/ccv_tarjeta"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/etnombretarjeta"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="17dp"
+            android:ems="10"
+            android:hint="@string/nombre_tarjeta"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/etnumerotarjeta"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/etnombretarjeta"
+            android:layout_below="@+id/etnombretarjeta"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:hint="@string/numero_tarjeta"
+            android:inputType="number" />
+
+        <Spinner
+            android:id="@+id/spmes"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/etnumerotarjeta"
+            android:layout_below="@+id/etccvtarjeta"
+            android:entries="@array/mes" />
+
+        <Spinner
+            android:id="@+id/spanno"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/spmes"
+            android:layout_alignBottom="@+id/spmes"
+            android:layout_alignEnd="@+id/etnumerotarjeta"
+            android:entries="@array/anno" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="102dp"
+            android:text="@string/bton_guardar"
+            android:textSize="17dp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="210dp"
+            android:layout_height="60dp"
+            android:layout_alignEnd="@+id/etnombretarjeta"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/etnombretarjeta"
+            android:layout_marginTop="14dp"
+            app:srcCompat="@drawable/tarjetascredito" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
