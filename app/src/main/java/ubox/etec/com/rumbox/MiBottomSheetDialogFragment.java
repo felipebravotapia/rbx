@@ -5,10 +5,7 @@ import android.support.design.widget.BottomSheetDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-/**
- * Created by Felipe_Karin on 11-10-2017.
- */
+import android.widget.TextView;
 
 public class MiBottomSheetDialogFragment extends BottomSheetDialogFragment {
 
@@ -18,7 +15,13 @@ public class MiBottomSheetDialogFragment extends BottomSheetDialogFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.botones_servicios, container, false);
+        View v = inflater.inflate(R.layout.bs_dialog_fragment, container, false);
+
+        String distancia = getArguments().getString("distancia");
+        TextView distanciatxt = (TextView) v.findViewById(R.id.txt_distance);
+        distanciatxt.setText("Distancia Total: "+distancia+"");
+
+
         return v;
     }
 }

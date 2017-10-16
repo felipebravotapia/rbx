@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -50,6 +51,7 @@ import com.google.android.gms.maps.model.PolylineOptions;
 
 import android.support.v4.app.Fragment;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -74,6 +76,12 @@ public class Menu_principal extends AppCompatActivity
     Location mLastLocation;
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
+    String distance;
+
+
+    //boton sheeet
+    private LinearLayout bottomSheet;
+    //final BottomSheetBehavior bsb = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +96,7 @@ public class Menu_principal extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
             }
         });
 
@@ -111,6 +120,43 @@ public class Menu_principal extends AppCompatActivity
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+
+        bottomSheet = (LinearLayout)findViewById(R.id.bottomSheet);
+        final BottomSheetBehavior bsb = BottomSheetBehavior.from(bottomSheet);
+
+
+        bsb.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+
+                String nuevoEstado = "";
+
+                switch(newState) {
+                    case BottomSheetBehavior.STATE_COLLAPSED:
+                        nuevoEstado = "STATE_COLLAPSED";
+                        break;
+                    case BottomSheetBehavior.STATE_EXPANDED:
+                        nuevoEstado = "STATE_EXPANDED";
+                        break;
+                    case BottomSheetBehavior.STATE_HIDDEN:
+                        nuevoEstado = "STATE_HIDDEN";
+                        break;
+                    case BottomSheetBehavior.STATE_DRAGGING:
+                        nuevoEstado = "STATE_DRAGGING";
+                        break;
+                    case BottomSheetBehavior.STATE_SETTLING:
+                        nuevoEstado = "STATE_SETTLING";
+                        break;
+                }
+
+                Log.i("BottomSheets", "Nuevo estado: " + nuevoEstado);
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+                Log.i("BottomSheets", "Offset: " + slideOffset);
+            }
+        });
 
     }
 
@@ -162,10 +208,6 @@ public class Menu_principal extends AppCompatActivity
             startActivity(i);
 
         } else if (id == R.id.nav_slideshow) {
-
-
-
-
 
         } else if (id == R.id.nav_manage) {
 
@@ -371,6 +413,38 @@ private class ParserTask extends AsyncTask<String, Integer, List<List<HashMap<St
             Log.d("ParserTask",jsonData[0].toString());
             DataParser parser = new DataParser();
             Log.d("ParserTask", parser.toString());
+
+
+
+
+
+            JSONObject jsonObject = new JSONObject(jsonData[0].toString());
+
+                    // routesArray contains ALL routes
+                    JSONArray routesArray = jsonObject.getJSONArray("routes");
+                     // Grab the first route
+                    JSONObject route = routesArray.getJSONObject(0);
+                        // Take all legs from the route
+                    JSONArray legs = route.getJSONArray("legs");
+                    // Grab first leg
+                    JSONObject leg = legs.getJSONObject(0);
+
+                    JSONObject durationObject = leg.getJSONObject("duration");
+                    String duration = durationObject.getString("text");
+                    Log.d("duration", duration.toString());
+
+                    JSONObject distanceObject = leg.getJSONObject("distance");
+                    distance = distanceObject.getString("text");
+                    Log.d("distance", distance.toString());
+
+            BottomSheetDialogFragment bsdFragment = MiBottomSheetDialogFragment.newInstance();
+
+            Bundle args = new Bundle();
+            args.putString("distancia", distance);
+            bsdFragment.setArguments(args);
+            bsdFragment.show(Menu_principal.this.getSupportFragmentManager(), "BSDialog");
+
+
 
             // Starts parsing data
             routes = parser.parse(jObject);
